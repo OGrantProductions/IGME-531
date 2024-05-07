@@ -27,7 +27,7 @@ const drawEverything = (tileWidth, tileHeight, innerStrokeWidth, outerStrokeWidt
         let y = i * tileHeight;
         for (let j = 0; j < sideLength; j++) {
             let x = j * tileWidth;
-            let rotationInterval = helper.randNum(4.5);
+            let rotationInterval = helper.randInt(4);
             let tileType = helper.randNum(100);
             if (tileType < 20) {
                 fullGrid += drawLineTile(x, y, tileWidth, tileHeight, tileColor, "black", innerStrokeWidth, outerStrokeWidth, rotationInterval * 90);
