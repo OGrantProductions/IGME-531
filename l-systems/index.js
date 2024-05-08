@@ -23,6 +23,8 @@ const rules = {
   '+': '+'
 };
 
+let changingAngle;
+
 // iterate once through the string
 const iterate_once = (lindenmayerString) => {
   let newString = '';
@@ -36,8 +38,10 @@ const iterate_once = (lindenmayerString) => {
 // iterate n times through the string
 const iterateNTimes = (n, lindenmayerString) => {
   let newString = lindenmayerString;
+  changingAngle = 75; // reset the angle to 75 degrees
   for (let i = 0; i < n; i++) {
     newString = iterate_once(newString);
+    changingAngle -= 3; // decrease the angle by 3 each iteration
   }
   return newString;
 };
@@ -64,8 +68,7 @@ const makeVisual = (options, lindenmayerString) => {
     let newPoint = [lastPoint[0] + dx, lastPoint[1] + dy];
     points.push(newPoint);
 
-    lineColor = helper.getRandomColor(100);
-    pointsString += primitives.line(lastPoint[0], newPoint[0], lastPoint[1], newPoint[1], lineColor)
+    pointsString += primitives.line(lastPoint[0], newPoint[0], lastPoint[1], newPoint[1], lineColor, 8)
   };
 
   const whatToDo = {
@@ -78,10 +81,12 @@ const makeVisual = (options, lindenmayerString) => {
     // turn left
     '+': () => {
       rotation = rotation - angle;
+      lineColor = helper.getHSLColor(rotation * 50, 100); // change the color of the line based on the current rotation
     },
     // turn right
     '-': () => {
       rotation = rotation + angle;
+      lineColor = helper.getHSLColor(rotation * 50, 100); // change the color of the line based on the current rotation
     },
   };
 
@@ -89,17 +94,15 @@ const makeVisual = (options, lindenmayerString) => {
     const toDo = whatToDo[lindenmayerString[i]];
     toDo();
   }
-
   // returns a group of each line created in the Siepinski triangle
   return specialty.group([pointsString]);
-
 };
 
-let iterationTimes = 9;
+let iterationTimes = 6;
 const expanded = iterateNTimes(iterationTimes, axiom);
 let result = makeVisual({
-  lineLength: 12,
-  angle: 70,
+  lineLength: 20,
+  angle: changingAngle,
   startingPoint: [0, 0]
 }, expanded);
 
