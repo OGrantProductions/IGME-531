@@ -50,8 +50,8 @@ const drawInterruptionsGrid = (boxSize, numRows, numCols, gridType = "transparen
     let squares = mapGrid(gridSize / 128, 128, 128, noiseData, gridType);
 
     let lines = [];
-    for (let i = 0; i < numRows * 2; i++) {
-        for (let j = 0; j < numCols * 2; j++) {
+    for (let i = 0; i < (numRows * 2) - 1; i++) { // subtract 1 to avoid drawing a line on the past the last row
+        for (let j = 0; j < (numCols * 2) - 1; j++) { // subtract 1 to avoid drawing a line on the past the last column
             let x = j * boxSize / 2;
             let y = i * boxSize / 2;
             let xCenter = x + boxSize / 2;
