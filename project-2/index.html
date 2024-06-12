@@ -67,7 +67,7 @@
             let segments = 16;
 
 
-            let sizeDivider = 6; // the number to divide the size by to get the outer radius of each torus
+            let sizeDivider = 3; // the number to divide the size by to get the outer radius of each torus
             const maxLoops = initialDivider - sizeDivider; // the number of torus to create, the sum of the maxLoops and sizeDivider cannot exceed initialDivider
 
             let torusOuter = size / sizeDivider;
@@ -107,7 +107,7 @@
 
         }
 
-        render(document.getElementById("render"), torusTowers({ size: 300, X: 0, Y: 0 }, 1))
+        render(document.getElementById("render"), torusTowers({ size: 300, X: 0, Y: 0 }))
 
     </script>
 </body>
