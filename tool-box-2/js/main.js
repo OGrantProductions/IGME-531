@@ -54,7 +54,7 @@ const drawDesorderTile = (type, numLayers, x, y, groupWidth, groupHeight, stroke
     }
 
     let transformations = [];
-    transformations.push(transform.rotate(rotation, x + groupWidth/2, y + groupHeight/2)); // rotate the group
+    transformations.push(transform.rotate(rotation, x + groupWidth / 2, y + groupHeight / 2)); // rotate the group
     return specialty.group(tile, transformations); // return the group of shapes
 }
 
@@ -135,5 +135,14 @@ const drawDesOrderSVG = (type, numLayers, shapeColor, rotation = 0) => {
     return `${svgGroups}`;
 }
 
-document.body.innerHTML += `<h1 style= "text-align: center">(Des)Ordres Recreation</h1><p>${makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "#F4F1EB", "square", 15, "#2D2115")}</p>`; // (Des)Ordres recreation
-document.body.innerHTML += `<h1 style= "text-align: center">(Des)Ordres Variation</h1><p>${makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "black", "triangle", 10, `${helper.getRandomColor()}`, helper.randNum(360))}</p>`; // (Des)Ordres variation
+let recContainer = document.querySelector("#recreation");
+let varContainer = document.querySelector("#variation");
+
+recContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "#F4F1EB", "square", 15, "#2D2115"); // (Des)Ordres recreation
+varContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "black", "triangle", 10, `${helper.getRandomColor()}`, helper.randNum(360)); // (Des)Ordres variation
+
+let varyButton = document.querySelector("#varyButton");
+
+varyButton.addEventListener("click", () => {
+    varContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "black", "triangle", 10, `${helper.getRandomColor()}`, helper.randNum(360)); // (Des)Ordres variation
+});

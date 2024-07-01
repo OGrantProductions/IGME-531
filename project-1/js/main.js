@@ -115,4 +115,4 @@ const drawQuarterCircleTile = (x, y, width, height, stroke, fill, innerStrokeWid
     return specialty.group(groupItems, groupTransforms);
 }
 
-document.body.innerHTML = `<p>${makeAnSVG(0, 0, 200, 200)}</p>`;
+document.body.innerHTML += `<p>${makeAnSVG(0, 0, 200, 200)}</p>`;

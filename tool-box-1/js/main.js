@@ -102,8 +102,13 @@ const drawEveryStar = (starInfo) => {
 }
 
 
-let flexContainer = document.querySelector("#flex-container");
+let recContainer = document.querySelector("#recreation");
+let varContainer = document.querySelector("#variation");
 //let shapeColor = helper.getRandomColor(); // get a random color for my personal changes
 
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Sainte-Victoire en Rouge Recreation</h1>${makeSainteVictoireSVG(0, 0, 100, 100)}</div>`
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Sainte-Victoire en Rouge Variation</h1>${makeVariationSVG(0, 0, 100, 100)}</div>`
+recContainer.innerHTML += `${makeSainteVictoireSVG(0, 0, 100, 100)}`
+varContainer.innerHTML += `${makeVariationSVG(0, 0, 100, 100)}`
+
+let varyButton = document.querySelector("#varyButton");
+
+varyButton.addEventListener("click", () => { varContainer.innerHTML = `${makeVariationSVG(0, 0, 100, 100)}`});

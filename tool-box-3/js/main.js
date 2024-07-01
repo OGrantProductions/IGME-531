@@ -33,7 +33,7 @@ const drawSchotterGrid = (numSides, boxSize, numRows, numCols, scalesDown = fals
             let y = i * boxSize;
             let xCenter = x + boxSize / 2;
             let yCenter = y + boxSize / 2;
-            let randAngle = helper.randNum(i * 6) - (i * 3); // random angle between -3 and 3
+            let randAngle = helper.randNum((i + 0.5) * 6) - ((i + 0.5) * 3); // random angle between a multiples of -3 and 3 based on the level
             let randShiftX = helper.randNum(Math.floor(i / 10) * 6) - (Math.floor(i / 10) * 3); // random shift between -3 and 3
             let randShiftY = helper.randNum(Math.floor(i / 10) * 6) - (Math.floor(i / 10) * 3); // random shift between -3 and 3
 
@@ -65,8 +65,16 @@ const drawSchotterGrid = (numSides, boxSize, numRows, numCols, scalesDown = fals
 }
 
 
-let flexContainer = document.querySelector("#flex-container");
-let shapeColor = helper.getRandomColor(); // get a random color for my personal changes
+let recContainer = document.querySelector("#recreation");
+let varContainer = document.querySelector("#variation");
+let shapeColor = helper.getRandomColor(); // get a random color for the variation
 
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Schotter Recreation</h1>${makeAnSVG(0 - boxSize, 0 - boxSize, boxSize * (numCols + 3), boxSize * (numRows + 3), 4)}</div>`; // Schotter Recreation
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Schotter Variations</h1>${makeAnSVG(0 - boxSize, 0 - boxSize, boxSize * (numCols + 3), boxSize * (numRows + 3), (helper.randInt(5) + 3), true, shapeColor, "black")}</div>`; // Schotter Variations
+recContainer.innerHTML = makeAnSVG(0 - boxSize, 0 - boxSize, boxSize * (numCols + 3), boxSize * (numRows + 3), 4); // Schotter Recreation
+varContainer.innerHTML = makeAnSVG(0 - boxSize, 0 - boxSize, boxSize * (numCols + 3), boxSize * (numRows + 3), (helper.randInt(5) + 3), true, shapeColor, "black"); // Schotter Variations
+
+let varyButton = document.querySelector("#varyButton");
+
+varyButton.addEventListener("click", () => {
+    shapeColor = helper.getRandomColor();
+    varContainer.innerHTML = `${makeAnSVG(0 - boxSize, 0 - boxSize, boxSize * (numCols + 3), boxSize * (numRows + 3), (helper.randInt(5) + 3), true, shapeColor, "black")}`
+});

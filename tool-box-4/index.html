@@ -4,23 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/toolbox-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Recode Interruptions</title>
     <script src="js/main.js" type="module"></script>
-    <style>
-        #flex-container {
-            display: flex;
-            justify-content: space-evenly;
-            height: 80vh;
-        }
-        .flex-items {
-            flex: 1, 0, 0;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/6e97041ad0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <div id="flex-container">
+    <div class="flex-container">
+        <button type="button" onclick="location.href='../index.html';"><i class="fa-solid fa-house"></i> Showcase Home</button>
+        <button id="varyButton" type="button"><i class="fa-solid fa-rotate-right"></i> New Noise</button>
+    </div>
+    <div class="flex-container">
+        <div class="flex-items">
+            <h1>Interruptions Recreation</h1>
+            <div id="recreation">
+                <!-- this is where the direct recreation will go -->
+            </div>
+        </div>
+        <div class="flex-items">
+            <h1>Interruptions Variations</h1>
+            <div id="variation">
+                <!-- this is where the variation will go -->
+            </div>
+        </div>
     </div>
 
 </body>

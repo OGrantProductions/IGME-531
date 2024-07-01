@@ -7,13 +7,18 @@ import * as transform from '../../js-tools/transform.js';
 // https://github.com/Auburn/FastNoiseLite/tree/master/JavaScript#fastnoise-lite
 import FastNoiseLite from 'https://unpkg.com/fastnoise-lite@1.1.0/FastNoiseLite.js';
 
-let seed = helper.randInt(1000);
+const setNoise = () => {
+    let seed = helper.randInt(1000);
 
-// Create a FastNoiseLite object with a random seed
-let noise = new FastNoiseLite(seed);
-noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-noise.SetFrequency(0.03);
+    // Create a FastNoiseLite object with a random seed
+    let noise = new FastNoiseLite(seed);
+    noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+    noise.SetFrequency(0.03);
 
+    return noise;
+}
+
+let currentNoise = setNoise();
 let boxSize = 20;
 let numRows = 30;
 let numCols = 30;
@@ -43,7 +48,7 @@ const drawInterruptionsGrid = (boxSize, numRows, numCols, gridType = "transparen
         noiseData[x] = [];
 
         for (let y = 0; y < 128; y++) {
-            noiseData[x][y] = noise.GetNoise(x, y);
+            noiseData[x][y] = currentNoise.GetNoise(x, y);
         }
     }
 
@@ -128,8 +133,16 @@ const mapGrid = (boxSize, numRows, numCols, noiseGrid, gridType = "transparency"
     return squares;
 }
 
+let recContainer = document.querySelector("#recreation");
+let varContainer = document.querySelector("#variation");
 
-let flexContainer = document.querySelector("#flex-container");
+recContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows); // Interruptions Recreation
+varContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "color", "black"); // Interruptions Variations
 
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Interruptions Recreation</h1>${makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows)}</div>`; // Interruptions Recreation
-flexContainer.innerHTML += `<div class="flex-items"><h1 style= "text-align: center">Interruptions Variations</h1>${makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "color", "black")}</div>`; // Interruptions Variations
+let varyButton = document.querySelector("#varyButton");
+
+varyButton.addEventListener("click", () => {
+    currentNoise = setNoise();
+    recContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows);
+    varContainer.innerHTML = makeAnSVG(0, 0, boxSize * numCols, boxSize * numRows, "color", "black", "white");
+});
