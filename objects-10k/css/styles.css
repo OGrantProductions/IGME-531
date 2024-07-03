@@ -9,27 +9,17 @@ body{
     font-style: normal;
 }
 
-.flex-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.stack{
-    flex-direction: column;
-}
-
-.flex-items {
-    width: 45%;
-}
-
-.stack-items {
-    width: 90%;
+canvas {
+    display: block;
+    border: 1px solid gray;
     margin: auto;
 }
 
+
 button {
+    position: absolute;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin-left: 20px;
     background-color: #8D99AE;
     color: #EDF2F4;
     border: none;
@@ -39,16 +29,11 @@ button {
     font-family: inherit;
     font-weight: 600;
     font-size: 15pt;
-    width: 45%;
-}
-
-button:hover {
-    background-color: #D90429;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 25pt;
+    font-size: 30pt;
     font-weight: 700;
 }

@@ -4,101 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <title>10,000 Objects</title>
-    <style>
-        canvas {
-            border: 1px solid gray;
-        }
-    </style>
-    <script>
-        "use strict";
-
-        window.onload = init;
-
-        let ctx;
-        let numCols; // number of columns
-        let numRows; // number of rows
-        let currentColumnIndex; // index of the current column
-        let currentRowIndex; // index of the current row
-        let colWidth; // width of each column
-        let rowHeight; // height of each row
-        let circleRadius; // radius of each circle
-        let circleX; // the x position of the current circle
-        let circleY; // the y position of the current circle
-        let circleColor; // the color of the current circle
-
-        function init() {
-            console.log("page loaded!");
-
-            let canvas = document.querySelector("canvas");
-
-            // draw the canvas background 
-            ctx = canvas.getContext("2d");
-            ctx.fillStyle = "black";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // set values
-            numCols = 100;
-            numRows = 100;
-            colWidth = canvas.width / numCols;
-            rowHeight = canvas.height / numRows;
-            circleRadius = rowHeight / 2 * .9;
-            currentColumnIndex = 0;
-            currentRowIndex = 0;
-
-            // for (let i = 0; i < numCols; i++) {
-            //     for (let j = 0; j < numRows; j++) {
-            //         drawGridCircle(j, i);
-            //     }
-            // }
-            drawGrid();
-        }
-
-        function drawGrid() {
-            if (currentRowIndex < numRows) {
-                if (currentColumnIndex < numCols) {
-                    drawGridCircle(currentColumnIndex, currentRowIndex);
-                    currentColumnIndex++; // increment to the next column
-                }
-                else {
-                    currentColumnIndex = 0; // set the column index back to zero before moving to the next row
-                    currentRowIndex++; // increment to the next row
-                }
-            }
-            else {
-                return;
-            }
-            requestAnimationFrame(drawGrid);
-        }
-
-        // draw a grid circle
-        function drawGridCircle(colIndex, rowIndex) {
-            circleX = (colIndex * colWidth) + (colWidth / 2);
-            circleY = (rowIndex * rowHeight) + (rowHeight / 2);
-            circleColor = `hsl(${setHue(circleX, circleY)},100%,30%)`;
-            drawCircle(ctx, circleColor, circleX, circleY, circleRadius);
-        }
-
-        // draw a circle
-        function drawCircle(ctx, color, x, y, radius) {
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-            ctx.closePath();
-            ctx.fill();
-        }
-
-        // sets the hue of the circle based on its position
-        function setHue(positionX, positionY) {
-            let hue;
-            hue = (Math.max(positionX, positionY) * 10) / 5 % 361;
-            //hue = (positionX * positionY) / 5 % 361;
-            //console.log(hue);
-            return hue;
-        }
-    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="js/main.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/6e97041ad0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <button type="button" onclick="location.href='../index.html';"><i class="fa-solid fa-house"></i> Showcase
+        Home</button>
+    <h1>10,000 Objects</h1>
     <canvas width="700" height="700">
         Get a real browser!
     </canvas>

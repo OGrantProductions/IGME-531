@@ -30,6 +30,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     width: 20%;
+    min-width: 230px;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #EF233C;
