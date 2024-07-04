@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #2B2D42;
@@ -9,17 +9,15 @@ body{
     font-style: normal;
 }
 
-canvas {
-    display: block;
-    border: 1px solid gray;
-    margin: auto;
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30pt;
+    font-weight: 700;
 }
 
-
 button {
-    position: absolute;
     padding: 10px 20px;
-    margin-left: 20px;
     background-color: #8D99AE;
     color: #EDF2F4;
     border: none;
@@ -31,9 +29,11 @@ button {
     font-size: 15pt;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 30pt;
-    font-weight: 700;
+button:hover {
+    background-color: #D90429;
+}
+
+#home{
+    position: absolute;
+    margin-left: 20px;
 }
