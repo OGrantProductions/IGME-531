@@ -12,9 +12,8 @@ let circleColor; // the color of the current circle
 
 const init = () => {
     console.log("page loaded!");
-
     let canvas = document.querySelector("canvas");
-
+    
     // draw the canvas background 
     ctx = canvas.getContext("2d");
     ctx.fillStyle = "black";

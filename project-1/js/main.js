@@ -99,13 +99,13 @@ const drawQuarterCircleTile = (x, y, width, height, stroke, fill, innerStrokeWid
     groupItems.push(specialty.path(x, y, [shadowArc], fill, "black", 0, true));
 
     // over arcs
-    groupItems.push(specialty.path(x + width / 10, y, [specialty.arc(width - 1, height - 1, 0, 0, 0, rightEdge, bottomEdge -  width / 10)], fill, "red", outerStrokeWidth));
+    groupItems.push(specialty.path(x + width / 10, y, [specialty.arc(width - 1, height - 1, 0, 0, 0, rightEdge, bottomEdge - width / 10)], fill, "red", outerStrokeWidth));
     groupItems.push(specialty.path(x + width / 4.5, y, [specialty.arc(width - width / 4.5, height - height / 4.5, 0, 0, 0, rightEdge, bottomEdge - height / 4.5)], fill, "yellow", innerStrokeWidth));
     groupItems.push(specialty.path(x + width / 2.75, y, [specialty.arc(width - width / 2.75, height - height / 2.75, 0, 0, 0, rightEdge, bottomEdge - height / 2.75)], fill, "green", innerStrokeWidth));
     groupItems.push(specialty.path(centerX, y, [specialty.arc(width / 2, height / 2, 0, 0, 0, rightEdge, centerY)], fill, "blue", innerStrokeWidth));
     groupItems.push(specialty.path(rightEdge - width / 2.75, y, [specialty.arc(width / 2.75, height / 2.75, 0, 0, 0, rightEdge, y + height / 2.75)], fill, "green", innerStrokeWidth));
     groupItems.push(specialty.path(rightEdge - width / 4.5, y, [specialty.arc(width / 4.5, height / 4.5, 0, 0, 0, rightEdge, y + height / 4.5)], fill, "yellow", innerStrokeWidth));
-    groupItems.push(specialty.path(rightEdge - width / 10, y, [specialty.arc(1, 1, 0, 0, 0, rightEdge, y +  width / 10)], fill, "red", outerStrokeWidth));
+    groupItems.push(specialty.path(rightEdge - width / 10, y, [specialty.arc(1, 1, 0, 0, 0, rightEdge, y + width / 10)], fill, "red", outerStrokeWidth));
 
 
     let groupRotation = transform.rotate(rotation, centerX, centerY);
@@ -115,4 +115,9 @@ const drawQuarterCircleTile = (x, y, width, height, stroke, fill, innerStrokeWid
     return specialty.group(groupItems, groupTransforms);
 }
 
-document.body.innerHTML += `<p>${makeAnSVG(0, 0, 200, 200)}</p>`;
+// display the truchet tiles to the webpage
+let truchet = document.querySelector("#truchet");
+truchet.innerHTML = makeAnSVG(0, 0, 200, 200);
+
+let varyButton = document.querySelector("#varyButton");
+varyButton.addEventListener("click", () => { truchet.innerHTML = makeAnSVG(0, 0, 200, 200) });

@@ -14,17 +14,8 @@ body{
     justify-content: space-evenly;
 }
 
-.stack{
-    flex-direction: column;
-}
-
 .flex-items {
     width: 45%;
-}
-
-.stack-items {
-    width: 90%;
-    margin: auto;
 }
 
 button {

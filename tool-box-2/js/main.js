@@ -4,7 +4,7 @@ import * as specialty from '../../js-tools/specialty.js';
 import * as transform from '../../js-tools/transform.js';
 
 let boxSize = 10;
-let numRows = 4;
+let numRows = 17;
 let numCols = 17;
 
 const makeAnSVG = (x, y, width, height, backgroundColor, shapeType, numLayers, shapeColor, rotation = 0) => {

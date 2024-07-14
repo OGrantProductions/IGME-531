@@ -33,7 +33,17 @@ button:hover {
     background-color: #D90429;
 }
 
-#home{
+#homeButton {
     position: absolute;
-    margin-left: 20px;
+    left: 20px;
+}
+
+#varyButton {
+    position: absolute;
+    right: 20px
+}
+
+#downloadButton {
+    position: absolute;
+    right: 20px
 }
