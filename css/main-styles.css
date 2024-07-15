@@ -8,6 +8,7 @@ body {
 
     font-family: "Kanit", sans-serif;
     font-style: normal;
+    text-align: center;
 }
 
 .assignment-section {
@@ -65,20 +66,17 @@ button:hover {
 }
 
 h1 {
-    text-align: center;
     font-size: 40pt;
     font-weight: 700;
 }
 
 h2 {
-    text-align: center;
     font-size: 30pt;
     margin: 0;
     font-weight: 600;
 }
 
 h3 {
-    text-align: center;
     font-size: 20pt;
     margin: 0 auto 1rem;
     /* 0 top, auto right, 1rem bottom */
@@ -86,4 +84,22 @@ h3 {
 
 hr {
     margin: 20px 0px;
+}
+
+p {
+    font-size: 15pt;
+    font-weight: 300;
+}
+
+a:link,
+a:visited {
+    color: #EDF2F4;
+}
+
+a:hover {
+    color: #D90429;
+}
+
+a:active {
+    color: #8D99AE;
 }
